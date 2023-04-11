@@ -1,0 +1,30 @@
+﻿@model Assignment5_DucMinhHuynh.Models.Teacher
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Show of teacher</h2>
+<div class="grid-container">
+    <div class="grid-item">@Model.teacherfname</div>
+    <div class="grid-item">@Model.teacherlname</div>
+    <div class="grid-item">@Model.salary</div>
+    <div class="grid-item">@Model.hiredate</div>
+    <div class="grid-item">@Model.employeeenumber</div>
+    <div class="grid-item"><button><a href="../Update/@Model.teacherid">Update</a></button><button><a href="../Assign/@Model.teacherid">Assign Class</a></button><button><a href="../DeleteConfirm/@Model.teacherid">Delete</a></button></div>
+
+</div>
+<style>
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 1px;
+    }
+
+    .grid-item {
+        border: 1px solid black;
+        padding: 10px;
+    }
+    .grid-item button {
+        margin-left:1em;
+    }
+</style> 

@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Assignment5_DucMinhHuynh.Models.Teacher>
+@{
+    ViewBag.Title = "List";
+}
+<style>
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(1, 300px);
+        gap: 1px;
+    }
+
+    .grid-item {
+        border: 1px solid black;
+        padding: 10px;
+    }
+</style>
+<h2>List of Teacher Name</h2>
+<button><a href="./CreateTeacher">Add Another Teacher</a></button>
+<div class="grid-container">
+    <div class="grid-item">Teacher Name </div>
+    @foreach (var teacher in Model)
+    {
+        <div class="grid-item"><a href="./Show/@teacher.teacherid">@teacher.teacherfname @teacher.teacherlname</a></div>
+    }
+
+</div>
