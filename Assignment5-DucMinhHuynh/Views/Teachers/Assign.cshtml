@@ -6,7 +6,7 @@
 <h2>Assign @Model.teacherfname @Model.teacherlname To Class :</h2>
 
 
-<form method="POST" action="/Teachers/Assign/@Model.teacherid">
+<form method="POST" id="Assignform"action="/Teachers/Assign/@Model.teacherid">
     <label for="classcode">ClassCode:</label>
     <input type="text" id="classcode" name="classcode"><br><br>
 
@@ -21,7 +21,52 @@
 
     <input type="submit" value="Submit"> <button class="btn_cancel"><a href="/Teachers/Show/@Model.teacherid">Cancel</a></button>
 </form>
+<script>
+    const form = document.querySelector('#Assignform');
+    const classcode = form.querySelector('#classcode');
+    const classname = form.querySelector('#classname');
+    const startdate = form.querySelector('#startdate');
+    const finishdate = form.querySelector('#finishdate');
 
+    form.addEventListener('submit', function (event) {
+        // Prevent the form from submitting if any input is invalid
+        if (!classcodeInputValid() || !classnameInputValid() || !startdateInputValid() || !finishdateInputValid()) {
+            event.preventDefault();
+        }
+    });
+    function classcodeInputValid() {
+        // Check that the teachfname input is not empty
+        if (classcode.value.trim() === '') {
+            classcode.focus();
+            return false;
+        }
+        return true;
+    }
+    function classnameInputValid() {
+        // Check that the teachlname input is not empty
+        if (classname.value.trim() === '') {
+            classname.focus();
+            return false;
+        }
+        return true;
+    }
+    function startdateInputValid() {
+        // Check that the hiredate input is not empty
+        if (startdate.value.trim() === '' || startdate.value === null) {
+            startdate.focus();
+            return false;
+        }
+        return true;
+    }
+    function finishdateInputValid() {
+        // Check that the hiredate input is not empty
+        if (finishdate.value.trim() === '' || finishdate.value === null) {
+            finishdate.focus();
+            return false;
+        }
+        return true;
+    }
+</script>
 <style>
     form {
         margin: 20px auto;
